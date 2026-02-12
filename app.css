@@ -45,6 +45,12 @@ body {
   margin-bottom: 18px;
 }
 
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .brand {
   display: flex;
   align-items: center;
@@ -136,6 +142,11 @@ body {
 .btn--primary {
   border-color: rgba(42, 230, 164, 0.55);
   background: linear-gradient(135deg, rgba(42, 230, 164, 0.22), rgba(255, 138, 43, 0.14));
+}
+
+.btn--install {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.18);
 }
 
 .btn--primary:hover {

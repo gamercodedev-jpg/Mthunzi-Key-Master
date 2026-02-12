@@ -11,6 +11,9 @@ const elCopy = document.getElementById('copy');
 const elClear = document.getElementById('clear');
 const elKey = document.getElementById('key');
 const elToast = document.getElementById('toast');
+const elInstall = document.getElementById('install');
+
+let deferredInstallPrompt = null;
 
 function toast(message) {
   elToast.textContent = message;
@@ -117,6 +120,36 @@ elClear.addEventListener('click', onClear);
 
 elDeviceId.addEventListener('keydown', (ev) => {
   if (ev.key === 'Enter') onGenerate();
+});
+
+// PWA install button (Android/Chrome)
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  if (elInstall) elInstall.hidden = false;
+});
+
+if (elInstall) {
+  elInstall.addEventListener('click', async () => {
+    try {
+      if (!deferredInstallPrompt) {
+        toast('Install not available here. Open in Chrome/Safari.');
+        return;
+      }
+      deferredInstallPrompt.prompt();
+      await deferredInstallPrompt.userChoice;
+      deferredInstallPrompt = null;
+      elInstall.hidden = true;
+    } catch {
+      toast('Install failed');
+    }
+  });
+}
+
+window.addEventListener('appinstalled', () => {
+  deferredInstallPrompt = null;
+  if (elInstall) elInstall.hidden = true;
+  toast('Installed');
 });
 
 // Register service worker for offline-first

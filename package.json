@@ -1,0 +1,13 @@
+{
+  "name": "mthunzi-admin-key-generator",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Offline-first PWA to generate Mthunzi-Admin master keys.",
+  "scripts": {
+    "dev": "http-server -p 5500 -c-1",
+    "start": "http-server -p 5500 -c-1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

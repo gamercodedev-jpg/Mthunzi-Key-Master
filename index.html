@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta name="description" content="Mthunzi-Admin Master Key Generator" />
+
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icons/icon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+
+  <title>Mthunzi-Admin Key</title>
+  <link rel="stylesheet" href="./app.css" />
+</head>
+<body>
+  <main class="app" role="main">
+    <header class="header">
+      <div class="brand">
+        <img class="brand__icon" src="./icons/icon-192.png" alt="" width="44" height="44" />
+        <div>
+          <h1 class="brand__title">Mthunzi-Admin</h1>
+          <p class="brand__subtitle">Master Key Generator (offline)</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="card" aria-label="Generator">
+      <label class="label" for="deviceId">Device ID</label>
+      <div class="row">
+        <input id="deviceId" class="input" inputmode="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="e.g. 9F2A-41D0" />
+        <button id="generate" class="btn btn--primary" type="button">Generate Master Key</button>
+      </div>
+
+      <div class="output" aria-live="polite" aria-atomic="true">
+        <div class="output__label">Master Key</div>
+        <div id="key" class="output__value">----</div>
+        <div class="output__actions">
+          <button id="copy" class="btn" type="button" disabled>Copy to Clipboard</button>
+          <button id="clear" class="btn btn--ghost" type="button">Clear</button>
+        </div>
+        <p class="hint">Format: <strong>8821-9934</strong> (8 digits) — paste into WhatsApp.</p>
+      </div>
+    </section>
+
+    <footer class="footer footerCard" aria-label="About">
+      <div class="footerCard__left">
+        <div class="footerCard__badge">Mthunzi-Tech-Labs.</div>
+        <div class="footerCard__meta">Private • Offline-first • Admin Tool</div>
+      </div>
+      <div class="footerCard__right">
+        <div class="footerCard__tip">Install: browser menu → Add to Home Screen</div>
+        <div class="footerCard__tip">Offline: works after first open</div>
+      </div>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
